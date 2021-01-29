@@ -24,6 +24,7 @@ public class Death : MonoBehaviour
    {
       if (other.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
       {
+         if(other.CompareTag("Planet")) SoundManager.PlaySound(SoundManager.Sound.Explosion);
          GetComponent<PlayerController>().enabled = false;
          
          foreach (GameObject GO in disableOnDeath)

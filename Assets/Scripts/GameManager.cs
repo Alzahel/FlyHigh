@@ -42,6 +42,8 @@ public class GameManager : MonoBehaviour
         InputManager.Instance.OnTap+= Taped;
         
         ActivateMenuUI();
+        
+        SoundManager.PlaySound(SoundManager.Sound.Music, true);
     }
 
     private void Taped()

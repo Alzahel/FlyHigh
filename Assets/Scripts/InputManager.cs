@@ -11,9 +11,6 @@ public class InputManager : MonoBehaviour
     
     private Controller controller;
 
-    public delegate void TouchPositionEvent(Vector2 position, float time);
-    public event TouchPositionEvent OnPositionChanged;
-    
     public delegate void StartTouchEvent(Vector2 position, float time);
     public event StartTouchEvent OnStartTouch;
     
@@ -38,7 +35,6 @@ public class InputManager : MonoBehaviour
 
     void Start()
     {
-        //controller.Controls.TouchPosition.performed += ctx => GetTouchPosition(ctx);
         controller.Controls.TouchPress.performed += ctx => StartTouch(ctx);
         controller.Controls.TouchPress.canceled += ctx => EndTouch(ctx);
         controller.Controls.Tap.performed += ctx => Tap(ctx);
