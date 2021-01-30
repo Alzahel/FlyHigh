@@ -11,12 +11,18 @@ public class Score : MonoBehaviour
     [SerializeField] private FloatVariable score;
     
     [SerializeField] private TextMeshProUGUI tmpScore = null;
+    [SerializeField] private TextMeshProUGUI tmpPauseScore = null;
     [SerializeField] private TextMeshProUGUI tmpDeathScore = null;
     
     // Start is called before the first frame update
     void Start()
     {
-        score.Value = 0;
+        ResetScore();
+    }
+
+    public void ResetScore()
+    {
+        score.Value = 0f;
     }
 
     // Update is called once per frame
@@ -27,6 +33,7 @@ public class Score : MonoBehaviour
         currentTime = Time.time - startTime;
         score.Value = Mathf.RoundToInt(score.Value + (currentTime * scrolling.verticalSpeed / 10));
         tmpScore.text = score.Value.ToString();
+        tmpPauseScore.text = "Score : " + score.Value;
         tmpDeathScore.text = "Score : " + score.Value;
     }
 }

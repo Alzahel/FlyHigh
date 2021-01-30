@@ -42,11 +42,6 @@ public class InputManager : MonoBehaviour
         controller.Controls.PcMovement.performed +=  ctx=> ArrowPressed(ctx);
     }
 
-    private void GetTouchPosition()
-    {
-        
-    }
-
     private void ArrowPressed(InputAction.CallbackContext ctx)
     {
         OnArrowPressed?.Invoke(controller.Controls.PcMovement.ReadValue<float>());
@@ -54,7 +49,6 @@ public class InputManager : MonoBehaviour
 
     private void StartTouch(InputAction.CallbackContext ctx)
     {
-       // OnStartTouch?.Invoke(ctx.ReadValue<Vector2>(),(float)ctx.startTime);
         OnStartTouch?.Invoke(controller.Controls.TouchPosition.ReadValue<Vector2>(),(float)ctx.startTime);
     }
     

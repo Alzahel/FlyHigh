@@ -20,6 +20,7 @@ public class SoundManager
     public static void PlaySound(Sound sound, Vector3 position, bool loop = false)
     {
         GameObject soundGameObject = new GameObject("Sound");
+        soundGameObject.transform.SetParent(GameAssets.Instance.transform);
         soundGameObject.transform.position = position;
         AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
         audioSource.clip = GetAudioClip(sound);
@@ -36,12 +37,14 @@ public class SoundManager
     public static void PlaySound(Sound sound, bool loop = false)
     {
         GameObject soundGameObject = new GameObject("Sound");
+        soundGameObject.transform.SetParent(GameAssets.Instance.transform);
         AudioSource audioSource = soundGameObject.AddComponent<AudioSource>(); 
         
         if(loop) audioSource.loop = true;
         
-        audioSource.PlayOneShot(GetAudioClip(sound));
+        audioSource.clip = GetAudioClip(sound);
         audioSource.volume = GetVolume(sound);
+        audioSource.Play();
     }
 
     private static AudioClip GetAudioClip(Sound sound)

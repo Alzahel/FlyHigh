@@ -38,8 +38,6 @@ public class PlayerController : MonoBehaviour
 
     private void CalculateDirection(Vector2 screenPosition, float time)
     {
-        Debug.Log(screenPosition);
-        
         float direction = 0;
         if (screenPosition.x < Screen.width / 2) direction = -1;
         else direction = 1;

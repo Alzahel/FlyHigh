@@ -11,12 +11,13 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     
     [SerializeField] private GameObject menuUI = null;
+    [SerializeField] private GameObject SettingsUI = null;
+    [SerializeField] private GameObject ShopUI = null;
+    [SerializeField] private GameObject RankingUI = null;
     [SerializeField] private GameObject gameUI = null;
     [SerializeField] private GameObject pauseUI = null;
     [SerializeField] private GameObject deathUI = null;
 
-    [SerializeField] private Button settingsButton;
-    
     [SerializeField] private GameObject player = null;
     
     [SerializeField] private List<GameObject> disabledInMenus = null;
@@ -25,6 +26,9 @@ public class GameManager : MonoBehaviour
 
     public bool IsDead { get; private set; }
     public bool IsMenu { get; private set;} = true;
+    public bool IsSettings { get; private set;}
+    public bool IsShop { get; private set;}
+    public bool IsRanking { get; private set;}
     public bool IsGame { get; private set;}
     public bool IsPaused { get; private set;}
 
@@ -38,36 +42,67 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         death.OnDied += Die;
-       // InputManager.Instance.OnTap += TouchPressed;
         InputManager.Instance.OnTap+= Taped;
         
         ActivateMenuUI();
+        
         
         SoundManager.PlaySound(SoundManager.Sound.Music, true);
     }
 
     private void Taped()
     {
-        if(IsDead) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if(IsDead) ReloadGame();
     }
-    
-    public void TouchPressed()
-    {
-        ActivateGameUI();
-    }
-    
+
     #region UI Management
 
     private void ActivateMenuUI()
     {
+        IsSettings = false;
+        IsShop = false;
+        IsRanking = false;
+        IsMenu = true;
+        
+        SettingsUI.SetActive(false);
+        ShopUI.SetActive(false);
+        RankingUI.SetActive(false);
+        
         player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         EnableGameElements(false);
+    }
+
+    private void ActivateSettingsUI()
+    {
+        
+        IsPaused = false;
+        IsSettings = !IsSettings;
+        IsMenu = !IsSettings;
+        
+        SettingsUI.SetActive(IsSettings);
+    }
+    
+    private void ActivateShopUI()
+    {
+        IsShop = !IsShop;
+        IsMenu = !IsShop;
+        
+        ShopUI.SetActive(IsShop);
+    }
+    
+    private void ActivateRankingUI()
+    {
+        
+        IsPaused = false;
+        IsRanking = !IsRanking;
+        IsMenu = !IsRanking;
+        
+        RankingUI.SetActive(IsRanking);
     }
     
     private void ActivateGameUI()
     {
         IsMenu = false;
-        IsDead = false;
         IsPaused = false;
         IsGame = true;
         
@@ -86,8 +121,6 @@ public class GameManager : MonoBehaviour
 
         gameUI.SetActive(false);
         pauseUI.SetActive(true);
-        
-       
     }
     
     private void ActivateDeathUI()
@@ -111,14 +144,39 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    #region Play
+    #region public actions
 
+    public void PlayGame()
+    {
+        Time.timeScale = 1;
+        ActivateGameUI();
+    }
+
+    public void backToMenu()
+    {
+        ActivateMenuUI();
+    }
     
-
-    #endregion
-
-    #region Pause
-
+    public void OpenSettings()
+    {
+        ActivateSettingsUI();
+    }
+    
+    public void OpenShop()
+    {
+        ActivateShopUI();
+    }
+    
+    public void OpenRanking()
+    {
+        ActivateRankingUI();
+    }
+    
+    public void PauseGame ()
+    {
+        Time.timeScale = 0;
+        ActivatePauseUI();
+    }
     #endregion
 
     #region Die
@@ -142,7 +200,7 @@ public class GameManager : MonoBehaviour
             if(Input.anyKeyDown)
             {
                 done = true; 
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                ReloadGame();
             }
             yield return null; 
         }
@@ -150,10 +208,8 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-    public void Settings()
+    public void ReloadGame()
     {
-        IsMenu = false;
-        Debug.Log("settings");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-    
 }
