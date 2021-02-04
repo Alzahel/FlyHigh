@@ -74,8 +74,6 @@ public class GameManager : MonoBehaviour
 
     private void ActivateSettingsUI()
     {
-        
-        IsPaused = false;
         IsSettings = !IsSettings;
         IsMenu = !IsSettings;
         
@@ -92,8 +90,6 @@ public class GameManager : MonoBehaviour
     
     private void ActivateRankingUI()
     {
-        
-        IsPaused = false;
         IsRanking = !IsRanking;
         IsMenu = !IsRanking;
         
@@ -148,8 +144,15 @@ public class GameManager : MonoBehaviour
 
     public void PlayGame()
     {
-        Time.timeScale = 1;
-        ActivateGameUI();
+        
+        if (IsSettings) ActivateSettingsUI();
+        else if (IsShop) ActivateShopUI();
+        else if (IsRanking) ActivateRankingUI();
+        else if (IsMenu || IsPaused)
+        {
+            Time.timeScale = 1;
+            ActivateGameUI();
+        }
     }
 
     public void backToMenu()

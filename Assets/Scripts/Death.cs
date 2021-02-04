@@ -34,7 +34,7 @@ public class Death : MonoBehaviour
 
          GameObject deathEffectGO = Instantiate(deathExplosion, this.transform);
          
-         Handheld.Vibrate();
+         if(SystemInfo.deviceType == DeviceType.Handheld) Handheld.Vibrate();
          OnDied?.Invoke();
       };
    }
