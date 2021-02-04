@@ -46,7 +46,7 @@ public class Score : MonoBehaviour
         if (!GameManager.Instance.IsGame) return;
         
         currentTime = Time.time - startTime;
-        score.Value = Mathf.RoundToInt(score.Value + (currentTime * scrolling.verticalSpeed / 10));
+        score.Value = Mathf.RoundToInt(score.Value + (currentTime * scrolling.verticalSpeed / 100));
         tmpScore.text = score.Value.ToString();
         tmpPauseScore.text = "Score : " + score.Value;
         tmpDeathScore.text = "Score : " + score.Value;
