@@ -11,6 +11,7 @@ FlyHigh est un jeu de scoring, l'objectif est d'allez le plus loin possible dans
 ## Demo
 
 ![alt text](https://media.giphy.com/media/CThhXhR6xYUQKmDFmc/giphy.gif)
+![alt text](https://media.giphy.com/media/OeJwm1QUOnNblDTLlE/giphy.gif)
 
 ## Contrôles
 
