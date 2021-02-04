@@ -3624,7 +3624,7 @@ MonoBehaviour:
     volume: 1
   - sound: 2
     audioclip: {fileID: 8300000, guid: 65c24abde9c4cdb43894c06cd06ac71d, type: 3}
-    volume: 1
+    volume: 0.307
   - sound: 0
     audioclip: {fileID: 0}
     volume: 1
@@ -4218,7 +4218,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1061861298
 Transform:
   m_ObjectHideFlags: 0
@@ -6717,7 +6717,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1907395719
 Transform:
   m_ObjectHideFlags: 0
@@ -7571,6 +7571,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2040483099}
   m_CullTransparentMesh: 0
+--- !u!1 &2083720421
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2083720423}
+  - component: {fileID: 2083720422}
+  m_Layer: 0
+  m_Name: ScreenEdgesColliders
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2083720422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083720421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2f72ea3b4b9424449eefa2accf485f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  topCollider: 0
+  bottomCollider: 0
+  leftCollider: 1
+  rightCollider: 1
+  colThickness: 0.1
+  zPosition: 0
+--- !u!4 &2083720423
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083720421}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2084293176
 GameObject:
   m_ObjectHideFlags: 0

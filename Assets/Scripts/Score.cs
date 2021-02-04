@@ -8,7 +8,7 @@ public class Score : MonoBehaviour
     [SerializeField] private Scrolling scrolling = null;
     private float startTime = 0;
     private float currentTime = 0;
-    [SerializeField] private FloatVariable score;
+    [SerializeField] private FloatVariable score = null;
     
     [SerializeField] private TextMeshProUGUI tmpScore = null;
     [SerializeField] private TextMeshProUGUI tmpPauseScore = null;
