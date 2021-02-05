@@ -8,6 +8,10 @@ FlyHigh est un jeu mobile en cours de développement.
 
 FlyHigh est un jeu de scoring, l'objectif est de couvrir le plus de distance dans l'espace en évitant les différents obstacles qui apparaissent pour vous détruire. La difficulté s'accroit avec le temps.
 
+#Dev state
+
+L'interface et la boucle de gameplay principale ont été intégrés. Les prochaines mises à jours verront arriver de plus nombreux obstacles et une courbe de difficulté augmentée qui rendront le gameplay moins répétitif et plus challengeant.
+
 ## Demo
 
 ![alt text](https://media.giphy.com/media/CThhXhR6xYUQKmDFmc/giphy.gif)
