@@ -11,6 +11,8 @@ FlyHigh est un jeu de scoring, l'objectif est de couvrir le plus de distance dan
 ## A venir
 
 L'interface et la boucle de gameplay principale ont été intégrés. Les prochaines mises à jours verront arriver de plus nombreux obstacles et une courbe de difficulté augmentée qui rendront le gameplay moins répétitif et plus challengeant.
+J'intégrerai par la suite des compétences activables et des objets in Game qui auront pour but de diversifier l'expérience et de récompenser le joueurs pour son placement intelligent.
+Enfin, je souhaite intégrer un classement des meilleurs scores permettant aux joueurs de compétiter entre eux. 
 
 ## Demo
 
